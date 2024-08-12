@@ -1,0 +1,26 @@
+:root {
+	--background-color: #E2E8F0;
+	--primary-color: #1992D4;
+	--secondary-color: #F0B429;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: 1fr 4fr;
+	grid-template-areas:
+	"sidebar header"
+	"sidebar main";
+}
