@@ -24,3 +24,50 @@ html {
 	"sidebar header"
 	"sidebar main";
 }
+
+.sidebar {
+	grid-area: sidebar;
+	background-color: var(--primary-color);
+	color: white;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+	font-weight: bold;
+}
+
+.sidebar .icon {
+	fill: white;
+}
+
+.sidebar .logo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.sidebar .logo .icon {
+	width: 5rem;
+}
+
+.sidebar .logo .title {
+	font-size: 2.5rem;
+}
+
+.sidebar nav .icon {
+	width: 2.5rem;
+}
+
+.sidebar nav ul {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	font-size: 2.2rem;
+	margin-left: 1.5rem;
+}
+
+.sidebar nav li {
+	list-style-type: none;
+	display: flex;
+	gap: 2rem;
+}
