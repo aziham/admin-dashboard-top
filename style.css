@@ -19,17 +19,18 @@ html {
 	height: 100vh;
 	display: grid;
 	grid-template-columns: 1fr 4fr;
-	grid-template-rows: 1fr 4fr;
+	grid-template-rows: 1fr 5fr;
 	grid-template-areas:
-	"sidebar header"
-	"sidebar main";
+		"sidebar header"
+		"sidebar main";
 }
 
+/* Sidebar */
 .sidebar {
 	grid-area: sidebar;
 	background-color: var(--primary-color);
 	color: white;
-	padding: 1rem;
+	padding: 1.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: 5rem;
@@ -70,4 +71,115 @@ html {
 	list-style-type: none;
 	display: flex;
 	gap: 2rem;
+}
+
+/* Header */
+header {
+	grid-area: header;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-areas:
+		"search-bar user-profile"
+		"user-info action-btns";
+	row-gap: 1.5rem;
+	padding: 0.7rem 5rem;
+	box-shadow: 0px 4px 6px hsla(0, 0%, 0%, 0.23);
+	z-index: 1;
+}
+
+/* Search Bar */
+header .search-bar {
+	grid-area: search-bar;
+	display: flex;
+	gap: 1.5rem;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+header .search-bar #search-input {
+	background-color: var(--background-color);
+	border: none;
+	outline: none;
+	border-radius: 1.5rem;
+	height: 3rem;
+	width: 90%;
+	padding: 0 1rem;
+}
+
+header .search-bar #search-btn,
+header .user-profile .notifications-btn {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+header .search-bar #search-btn svg,
+header .user-profile .notifications-btn svg {
+	width: 2.5rem;
+}
+
+/* User Profile */
+header .user-profile {
+	grid-area: user-profile;
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+}
+
+header .user-profile .user-avatar {
+	width: 6rem;
+}
+
+header .user-profile .user-fullname {
+	font-size: 1.7rem;
+	font-weight: bold;
+}
+
+/* User Info */
+header .user-info {
+	grid-area: user-info;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+header .user-info .user-avatar {
+	width: 9rem;
+}
+
+header .user-info .user-welcome-msg {
+	line-height: 1.5;
+}
+
+header .user-info .user-welcome-msg .user-greeting {
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+header .user-info .user-welcome-msg .username {
+	font-size: 2.3rem;
+	font-weight: bold;
+}
+
+/* Action Buttons */
+header .action-btns {
+	grid-area: action-btns;
+	display: flex;
+	gap: 2.5rem;
+	align-items: center;
+}
+
+header .action-btns > button {
+	border: none;
+	outline: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	background-color: var(--primary-color);
+	color: white;
+	padding: 1rem 3rem;
+	border-radius: 3rem;
+	cursor: pointer;
 }
