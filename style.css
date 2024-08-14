@@ -15,6 +15,17 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+button:has(svg) {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+button svg {
+	width: 2.5rem;
+}
+
 .container {
 	height: 100vh;
 	display: grid;
@@ -78,18 +89,14 @@ header {
 	grid-area: header;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	grid-template-areas:
-		"search-bar user-profile"
-		"user-info action-btns";
 	row-gap: 1.5rem;
-	padding: 0.7rem 5rem;
-	box-shadow: 0px 4px 6px hsla(0, 0%, 0%, 0.23);
+	padding: 1.5rem 5rem;
+	box-shadow: 0px 4px 6px hsla(0, 0%, 0%, 0.15);
 	z-index: 1;
 }
 
 /* Search Bar */
 header .search-bar {
-	grid-area: search-bar;
 	display: flex;
 	gap: 1.5rem;
 	flex-direction: row-reverse;
@@ -107,22 +114,8 @@ header .search-bar #search-input {
 	padding: 0 1rem;
 }
 
-header .search-bar #search-btn,
-header .user-profile .notifications-btn {
-	background: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
-
-header .search-bar #search-btn svg,
-header .user-profile .notifications-btn svg {
-	width: 2.5rem;
-}
-
 /* User Profile */
 header .user-profile {
-	grid-area: user-profile;
 	display: flex;
 	gap: 2rem;
 	align-items: center;
@@ -130,7 +123,7 @@ header .user-profile {
 }
 
 header .user-profile .user-avatar {
-	width: 6rem;
+	width: 5rem;
 }
 
 header .user-profile .user-fullname {
@@ -140,14 +133,13 @@ header .user-profile .user-fullname {
 
 /* User Info */
 header .user-info {
-	grid-area: user-info;
 	display: flex;
 	gap: 1rem;
 	align-items: center;
 }
 
 header .user-info .user-avatar {
-	width: 9rem;
+	width: 7.5rem;
 }
 
 header .user-info .user-welcome-msg {
@@ -166,7 +158,6 @@ header .user-info .user-welcome-msg .username {
 
 /* Action Buttons */
 header .action-btns {
-	grid-area: action-btns;
 	display: flex;
 	gap: 2.5rem;
 	align-items: center;
@@ -182,4 +173,138 @@ header .action-btns > button {
 	padding: 1rem 3rem;
 	border-radius: 3rem;
 	cursor: pointer;
+}
+
+/* Main */
+main {
+	grid-area: main;
+	background-color: var(--background-color);
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-areas:
+		"projects announcements"
+		"projects trending";
+	row-gap: 3.5rem;
+	column-gap: 2rem;
+	padding: 3.5rem 2rem;
+}
+
+main h2 {
+	font-size: 2.1rem;
+	margin-bottom: 1rem;
+}
+
+main .projects,
+main .announcements,
+main .trending {
+	display: flex;
+	flex-direction: column;
+}
+
+main .projects > .cards,
+main .announcements > .card,
+main .trending > .card {
+	flex: 1;
+}
+
+main .projects > .cards > .card,
+main .announcements > .card,
+main .trending > .card {
+	box-shadow: 4px 4px 6px hsla(0, 0%, 0%, 0.15);
+}
+
+main .trending .card,
+main .announcements .card {
+	background-color: white;
+	padding: 2rem 2.5rem;
+	border-radius: 0.7rem;
+	display: flex;
+	gap: 2rem;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* Projects */
+main .projects {
+	grid-area: projects;
+}
+
+main .projects .cards {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2.5rem;
+}
+
+main .projects .cards .card {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	padding: 3rem 2rem;
+	border-left: 0.7rem solid var(--secondary-color);
+	border-radius: 0.7rem;
+}
+
+main .projects .cards .card .title {
+	font-size: 1.8rem;
+}
+
+main .projects .cards .card .description {
+	font-size: 1.5rem;
+	color: grey;
+	font-weight: 500;
+}
+
+main .projects .cards .card .action-btns {
+	margin-top: auto;
+	display: flex;
+	gap: 2rem;
+	justify-content: flex-end;
+	margin-right: 1.5rem;
+}
+
+/* Announcements */
+main .announcements {
+	grid-area: announcements;
+}
+
+main .announcements .announcement:not(:last-child) {
+	border-bottom: 1px solid hsla(0, 0%, 50%, 0.3);
+	padding-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+main .announcements .announcement .title {
+	font-size: 1.5rem;
+}
+
+main .announcements .announcement .description {
+	color: grey;
+	font-weight: 500;
+}
+
+
+/* Trending */
+main .trending {
+	grid-area: trending;
+}
+
+main .trending .card .user {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+}
+
+main .trending .card .user .avatar {
+	width: 5rem;
+}
+
+main .trending .card .user .username {
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+main .trending .card .user .about {
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: grey;
 }
